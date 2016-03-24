@@ -1,9 +1,9 @@
 from zope.interface import Attribute, Interface
 
+
 class IPASEvent(Interface):
     """An event related to a PAS principal.
     """
-
     principal = Attribute("The subject of the event.")
 
 
@@ -47,3 +47,11 @@ class IGroupDeletedEvent(IPASEvent):
     """
 
 
+class IGroupAddedEvent(IPASEvent):
+    """ A group has been added
+    """
+
+
+class IGroupEdditedEvent(IPASEvent):
+    """ A group has been eddited
+    """
