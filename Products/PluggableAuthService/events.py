@@ -37,9 +37,10 @@ from Products.PluggableAuthService.interfaces.events \
 class PASEvent(object):
     implements(IPASEvent)
 
-    def __init__(self, principal):
+    def __init__(self, principal, REQUEST=None):
         self.principal = principal
         self.object = principal
+        self.REQUEST = REQUEST
 
 
 class PrincipalCreated(PASEvent):
@@ -57,8 +58,10 @@ class GroupDeleted(PASEvent):
 class GroupAdded(PASEvent):
     implements(IGroupAddedEvent)
 
+
 class GroupEddited(PASEvent):
     implements(IGroupEdditedEvent)
+
 
 class CredentialsUpdated(PASEvent):
     implements(ICredentialsUpdatedEvent)
